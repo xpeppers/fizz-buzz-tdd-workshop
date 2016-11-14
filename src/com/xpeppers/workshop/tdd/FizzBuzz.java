@@ -3,16 +3,22 @@ package com.xpeppers.workshop.tdd;
 public class FizzBuzz {
 
 	public String runOn(int number) {
+		String map = "";
+
 		if (isMultipleOf(number, 3))
-			return "Fizz";
+			map += "Fizz";
 
 		if (isMultipleOf(number, 5))
-			return "Buzz";
+			map += "Buzz";
 
-		return String.valueOf(number);
+		if (map.isEmpty())
+			map = String.valueOf(number);
+
+		return map;
 	}
 
 	private boolean isMultipleOf(int dividend, int divisor) {
 		return dividend % divisor == 0;
 	}
+
 }

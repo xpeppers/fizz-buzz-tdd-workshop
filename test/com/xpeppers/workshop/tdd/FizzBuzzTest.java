@@ -1,6 +1,6 @@
 package com.xpeppers.workshop.tdd;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,13 +23,19 @@ public class FizzBuzzTest {
 	@Test
 	public void multipleOfThreeReturnsFizz() {
 		assertEquals("Fizz", fizzBuzz.runOn(3));
-		assertEquals("Fizz", fizzBuzz.runOn(30));
+		assertEquals("Fizz", fizzBuzz.runOn(18));
 	}
 
 	@Test
 	public void multipleOfFiveReturnsFizz() {
 		assertEquals("Buzz", fizzBuzz.runOn(5));
 		assertEquals("Buzz", fizzBuzz.runOn(25));
+	}
+
+	@Test
+	public void multipleOfThreeAndFiveReturnsFizzBuzz() throws Exception {
+		assertEquals("FizzBuzz", fizzBuzz.runOn(15));
+		assertEquals("FizzBuzz", fizzBuzz.runOn(30));
 	}
 
 }

@@ -26,4 +26,10 @@ public class FizzBuzzTest {
 		assertEquals("Fizz", fizzBuzz.runOn(30));
 	}
 
+	@Test
+	public void multipleOfFiveReturnsFizz() {
+		assertEquals("Buzz", fizzBuzz.runOn(5));
+		assertEquals("Buzz", fizzBuzz.runOn(25));
+	}
+
 }

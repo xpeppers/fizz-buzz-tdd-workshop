@@ -1,6 +1,7 @@
 package com.xpeppers.workshop.tdd;
 
-import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class FizzBuzzRunner {
 
@@ -11,11 +12,9 @@ public class FizzBuzzRunner {
 	}
 
 	public String runOn(int lowerBound, int upperBound) {
-		StringJoiner resultCollector = new StringJoiner(", ");
-		for (int i = lowerBound; i <= upperBound; i++) {
-			resultCollector.add(fizzBuzz.runOn(i));
-		}
-		return resultCollector.toString();
+		return IntStream.range(lowerBound, upperBound + 1)
+				.mapToObj(i -> fizzBuzz.runOn(i))
+				.collect(Collectors.joining(", "));
 	}
 
 }

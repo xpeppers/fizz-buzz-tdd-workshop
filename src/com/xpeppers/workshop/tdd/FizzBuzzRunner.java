@@ -12,7 +12,7 @@ public class FizzBuzzRunner {
 	}
 
 	public String runOn(int lowerBound, int upperBound) {
-		return IntStream.range(lowerBound, upperBound + 1)
+		return IntStream.rangeClosed(lowerBound, upperBound)
 				.mapToObj(i -> fizzBuzz.runOn(i))
 				.collect(Collectors.joining(", "));
 	}

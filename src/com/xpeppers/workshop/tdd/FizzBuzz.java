@@ -1,20 +1,20 @@
 package com.xpeppers.workshop.tdd;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 public class FizzBuzz {
 
 	public String runOn(int number) {
-		Map<String, Function<Integer, String>> rules = new HashMap<String, Function<Integer, String>>();
-		rules.put("fizz-rule", isMultipleOf(3, "Fizz"));
-		rules.put("buzz-rule", isMultipleOf(5, "Buzz"));
+		List<Function<Integer, String>> rules = new ArrayList<Function<Integer, String>>();
+		rules.add(isMultipleOf(3, "Fizz"));
+		rules.add(isMultipleOf(5, "Buzz"));
 
 		String map = "";
 
-		for (String key : rules.keySet()) {
-			map += rules.get(key).apply(number);
+		for (Function<Integer, String> rule : rules) {
+			map += rule.apply(number);
 		}
 
 		if (map.isEmpty())
